@@ -36,16 +36,11 @@ public class MainActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ed1.getText().toString().equals("admin") &&
-
-                        ed2.getText().toString().equals("admin")) {
+                if (ed1.getText().toString().equals("admin") && ed2.getText().toString().equals("admin")) {
                     Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong username/password", Toast.LENGTH_SHORT).show();
-
-
                     counter--;
-
 
                     if (counter == 0) {
                         b1.setEnabled(false);
@@ -57,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+            }
+        });
+        Button b3=(Button) findViewById(R.id.button3);
+        b3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
                 finish();
             }
         });

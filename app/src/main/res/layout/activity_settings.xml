@@ -61,4 +61,13 @@
         android:layout_alignEnd="@+id/notifications"
         android:clickable="true" />
 
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/account"></ListView>
+
+
 </RelativeLayout>

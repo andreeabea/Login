@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+    android:id="@+id/id_delete"
+    android:title="@string/title_delete">
+    </item>
+    <item
+        android:id="@+id/id_share"
+        android:title="@string/title_share">
+    </item>
+    <item
+        android:id="@+id/id_help"
+        android:title="@string/title_help">
+    </item>
+</menu>

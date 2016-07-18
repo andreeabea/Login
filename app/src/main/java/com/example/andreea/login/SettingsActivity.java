@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+
 public class SettingsActivity extends AppCompatActivity {
 
     Switch s;
@@ -28,7 +29,6 @@ public class SettingsActivity extends AppCompatActivity {
         registerForContextMenu(listView);
         android_versions = getResources().getStringArray(R.array.android_versions);
         adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.row_layout,R.id.row_item,android_versions);
-
         listView.setAdapter(adapter);
         s = (Switch) findViewById(R.id.notifications);
 
@@ -71,7 +71,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         return super.onContextItemSelected(item);
     }
-
 
 }
 

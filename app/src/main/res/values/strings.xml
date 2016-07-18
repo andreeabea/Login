@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Login</string>
     <string name="title_activity_login">Sign in</string>
-    
+
     <string name="title_1">VISIBLE - Everyone</string>
     <string name="title_2">VISIBLE - Friends</string>
     <string name="title_3">INVISIBLE</string>

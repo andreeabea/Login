@@ -1,5 +1,6 @@
 package com.example.andreea.login;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButtonToRegister ();
 
         b1 = (Button) findViewById(R.id.button);
         ed1 = (EditText) findViewById(R.id.editText);
@@ -49,21 +51,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button b3=(Button) findViewById(R.id.button3);
+
+    }
+
+    public void ButtonToRegister (){
+        b2 = (Button) findViewById(R.id.button2);
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-            }
-        });
-        Button b3=(Button) findViewById(R.id.button3);
-        b3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                finish();
+                Intent intent = new Intent("com.example.andreea.login.RegisterActivity");
+                startActivity(intent);
             }
         });
     }
-
-
 
 }

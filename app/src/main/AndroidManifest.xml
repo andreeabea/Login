@@ -29,6 +29,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.example.andreea.login.RegisterActivity">
+            <intent-filter>
+                <action android:name="com.example.andreea.login.RegisterActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

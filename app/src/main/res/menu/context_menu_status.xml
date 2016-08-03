@@ -12,17 +12,4 @@
         android:id="@+id/id_3"
         android:title="@string/title_3">
     </item>
-    <item
-        android:id="@+id/id_4"
-        android:title="@string/title_4">
-    </item>
-    <item
-        android:id="@+id/id_5"
-        android:title="@string/title_5">
-    </item>
-    <item
-        android:id="@+id/id_6"
-        android:title="@string/title_6">
-
-    </item>
 </menu>

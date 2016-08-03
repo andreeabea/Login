@@ -8,7 +8,7 @@
     <string name="title_4">Hortalez</string>
     <string name="title_5">Night</string>
     <string name="title_6">Windows</string>
-    
+
     <string-array name="android_versions">
 
         <item>Status</item>

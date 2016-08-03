@@ -13,26 +13,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.andreea.login.SettingsActivity">
+        <activity android:name=".SettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.andreea.login.RegisterActivity">
+        <activity android:name=".RegisterActivity">
             <intent-filter>
-                <action android:name="com.example.andreea.login.RegisterActivity"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.example.andreea.login.RegisterActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ForgotPassActivity">
+            <intent-filter>
+                <action android:name="com.example.andreea.login.ForgotPassActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 

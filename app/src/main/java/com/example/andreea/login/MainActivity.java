@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button b1, b2;
+    Button b1, b2, b3;
     EditText ed1, ed2;
 
     TextView tx1;
@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButtonToRegister ();
+        ButtonToRegister();
+        ButtonToForgotPass();
 
         b1 = (Button) findViewById(R.id.button);
         ed1 = (EditText) findViewById(R.id.editText);
@@ -51,17 +52,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button b3=(Button) findViewById(R.id.button3);
-
     }
+
+    ;
+
+
 
     public void ButtonToRegister (){
         b2 = (Button) findViewById(R.id.button2);
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent("com.example.andreea.login.RegisterActivity");
-                startActivity(intent);
+                Intent intentreg = new Intent("com.example.andreea.login.RegisterActivity");
+                startActivity(intentreg);
+            }
+        });
+    }
+
+    public void ButtonToForgotPass (){
+        b3 = (Button) findViewById(R.id.button3);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentforg = new Intent("com.example.andreea.login.ForgotPassActivity");
+                startActivity(intentforg);
             }
         });
     }

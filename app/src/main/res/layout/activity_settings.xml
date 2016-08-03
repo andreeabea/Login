@@ -16,12 +16,10 @@
         android:indeterminate="false"
         android:max="100"
         android:progress="50"
-        android:layout_above="@+id/notifications"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="34dp"
+        android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/volumeText"
-        android:layout_toEndOf="@+id/volumeText" />
+        android:layout_alignRight="@+id/account"
+        android:layout_alignEnd="@+id/account" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,11 +40,13 @@
         android:allowUndo="true"
         android:checked="true"
         android:focusableInTouchMode="false"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/volumeText"
+        android:layout_marginTop="55dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="111dp"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/sbVolume"
+        android:layout_alignEnd="@+id/sbVolume"
+        android:textColor="@color/abc_secondary_text_material_light" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,20 +54,71 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Account Settings"
         android:id="@+id/account"
-        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:layout_below="@+id/status"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/notifications"
-        android:layout_alignEnd="@+id/notifications"
-        android:clickable="true" />
+        android:layout_marginTop="51dp"
+        android:layout_alignRight="@+id/status"
+        android:layout_alignEnd="@+id/status" />
 
-    <ListView
-        android:id="@+id/list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Theme"
+        android:id="@+id/theme"
+        android:clickable="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/account"></ListView>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Status"
+        android:id="@+id/status"
+        android:clickable="true"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/theme"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/theme"
+        android:layout_alignEnd="@+id/theme" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/statusv"
+        android:clickable="true"
+        android:layout_alignTop="@+id/status"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="VISIBLE - Everyone" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/themev"
+        android:clickable="true"
+        android:layout_alignBottom="@+id/theme"
+        android:layout_alignRight="@+id/theme"
+        android:layout_alignEnd="@+id/theme"
+        android:text="Hortalez" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="51dp" />
 
 
 </RelativeLayout>

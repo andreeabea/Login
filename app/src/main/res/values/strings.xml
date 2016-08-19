@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Login</string>
+    <string name="app_name">Map</string>
     <string name="title_activity_login">Sign in</string>
 
     <string name="title_1">VISIBLE - Everyone</string>

@@ -57,7 +57,6 @@ public class RegisterActivity extends AppCompatActivity  {
                 } else {
 
                     bool.setText("passwords do not match");
-                    createAccount(mEmailField.getText().toString(), mPasswordField.getText().toString());
 
                 }
 

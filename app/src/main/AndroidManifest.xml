@@ -34,13 +34,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".ForgotPassActivity">
-            <intent-filter>
+        <intent-filter>
                 <action android:name="com.example.andreea.login.ForgotPassActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Sombrero" />
         <activity android:name=".AccountSettings"
                   android:label="Account Settings">
             <intent-filter>

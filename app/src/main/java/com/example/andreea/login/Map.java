@@ -1,27 +1,35 @@
 package com.example.andreea.login;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
+import android.Manifest;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
+
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Map extends AppCompatActivity implements OnMapReadyCallback {
+
+
+public class Map extends AppCompatActivity implements OnMapReadyCallback,OnMyLocationButtonClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
+
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+    private boolean mPermissionDenied = false;
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_layout);
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -29,33 +37,63 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap map) {
-//        map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-
-        CameraPosition googlePlex = CameraPosition.builder()
-                .target(new LatLng(37.4219999,-122.0862462))
-                .zoom(16)
-                .bearing(0)
-                .tilt(45)
-                .build();
+        mMap=map;
+        mMap.setOnMyLocationButtonClickListener(this);
+        enableMyLocation();
 
         map.addMarker(new MarkerOptions()
-                .position(new LatLng(37.4219999, -122.0862462))
-                .title("Google Plex")
-                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
-
-        map.addMarker(new MarkerOptions()
-                .position(new LatLng(37.4629101,-122.2449094))
-                .title("Facebook")
-                .snippet("Facebook HQ: Menlo Park"));
-
-        map.addMarker(new MarkerOptions()
-                .position(new LatLng(37.3092293, -122.1136845))
-                .title("Apple"));
-
+                .position(new LatLng(46.7712, 23.6236))
+                .title("Cluj-Napoca"));
         map.setMyLocationEnabled(true);
-
-//        map.moveCamera(CameraUpdateFactory.newCameraPosition(googlePlex));
-        map.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 10000, null);
+        map.getMyLocation();
 
     }
+
+    private void enableMyLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
+                    Manifest.permission.ACCESS_FINE_LOCATION, true);
+        } else if (mMap != null) {
+            mMap.setMyLocationEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onMyLocationButtonClick() {
+        Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show();
+        return false;
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode != LOCATION_PERMISSION_REQUEST_CODE) {
+            return;
+        }
+
+        if (PermissionUtils.isPermissionGranted(permissions, grantResults,
+                Manifest.permission.ACCESS_FINE_LOCATION)) {
+            enableMyLocation();
+        } else {
+            mPermissionDenied = true;
+        }
+    }
+
+    @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+        if (mPermissionDenied) {
+            showMissingPermissionError();
+            mPermissionDenied = false;
+        }
+    }
+
+    private void showMissingPermissionError() {
+        PermissionUtils.PermissionDeniedDialog
+                .newInstance(true).show(getSupportFragmentManager(), "dialog");
+    }
+
 }
+

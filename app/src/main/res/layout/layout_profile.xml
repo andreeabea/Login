@@ -15,7 +15,6 @@
         android:layout_alignParentBottom="true" />
 
     <SearchView
-        android:layou_alignParentTop="true"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:id="@+id/searchView"

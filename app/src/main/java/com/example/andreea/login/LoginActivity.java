@@ -72,21 +72,12 @@ public class LoginActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ed1.getText().toString().equals("vicondrus@gmail.com")) {
-                    Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
-
-                    ////////////////////////////////////TO DO
-                    /////////////insert somewhere signIn(email, password)   -    dunno tho
                     signIn(mEmailField.getText().toString(), mPasswordField.getText().toString());
-
-                } else {
-                    Toast.makeText(getApplicationContext(), "Wrong username/password", Toast.LENGTH_SHORT).show();
-                    counter--;
 
                     if (counter == 0) {
                         b1.setEnabled(false);
                     }
-                }
+
             }
         });
 
@@ -153,6 +144,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.w(TAG, "signInWithEmail:failed", task.getException());
                 Toast.makeText(LoginActivity.this, R.string.auth_failed,
                         Toast.LENGTH_SHORT).show();
+                counter--;
             }
 
             // ...

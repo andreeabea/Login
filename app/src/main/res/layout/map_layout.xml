@@ -1,8 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:id="@+id/map"
 tools:context=".Map"
-android:name="com.google.android.gms.maps.SupportMapFragment" />
+android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        />
+
+    <RadioGroup
+        android:id="@+id/radio_group_list_selector"
+        android:layout_width="102dp"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:background="#80000000"
+        android:padding="4dp" >
+
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:id="@+id/switch1"
+            android:checked="true" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#80000000"
+        android:padding="4dp"
+        android:layout_gravity="left|bottom">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:id="@+id/button4" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="102dp"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:background="#80000000"
+        android:padding="4dp"
+        android:layout_gravity="right|bottom">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friend list"
+            android:id="@+id/button5"
+            android:textSize="12dp" />
+    </RadioGroup>
+
+    <ZoomControls
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/zoomControls"
+        android:layout_gravity="center_horizontal|bottom" />
+
+</FrameLayout>

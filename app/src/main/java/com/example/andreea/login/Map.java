@@ -1,6 +1,8 @@
 package com.example.andreea.login;
 
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -15,6 +17,7 @@ import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -40,10 +43,19 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,OnMyLoc
         mMap=map;
         mMap.setOnMyLocationButtonClickListener(this);
         enableMyLocation();
-
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        Bitmap bitmap = BitmapFactory.decodeFile("andreea.JPG", options);
         map.addMarker(new MarkerOptions()
                 .position(new LatLng(46.7712, 23.6236))
-                .title("Andreea"));
+                .title("Andreea"))
+                .setIcon(BitmapDescriptorFactory.fromBitmap(bitmap));
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        Bitmap bitmap1 = BitmapFactory.decodeFile("vic.jpg", options);
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(46.769499, 23.576959))
+                .title("Victor"))
+                .setIcon(BitmapDescriptorFactory.fromBitmap(bitmap1));
+
         map.setMyLocationEnabled(true);
         map.getMyLocation();
 

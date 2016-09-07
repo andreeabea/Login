@@ -43,7 +43,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,OnMyLoc
 
         map.addMarker(new MarkerOptions()
                 .position(new LatLng(46.7712, 23.6236))
-                .title("Cluj-Napoca"));
+                .title("Andreea"));
         map.setMyLocationEnabled(true);
         map.getMyLocation();
 
